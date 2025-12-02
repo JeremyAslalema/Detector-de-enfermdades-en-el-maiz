@@ -14,3 +14,27 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+
+maiz_detector_app/
+├── assets/               ✓ CREADA
+│   ├── model/           ✓ CREADA
+│   └── images/          ✓ CREADA
+├── lib/
+│   ├── core/            ✓ CREADA
+│   ├── data/            ✓ CREADA
+│   │   ├── models/      ✓ CREADA
+│   │   └── repositories/✓ CREADA
+│   ├── domain/          ✓ CREADA
+│   │   └── classifiers/ ✓ CREADA
+│   ├── presentation/    ✓ CREADA
+│   │   ├── home/        ✓ CREADA
+│   │   ├── camera/      ✓ CREADA
+│   │   ├── gallery/     ✓ CREADA
+│   │   ├── results/     ✓ CREADA
+│   │   └── widgets/     ✓ CREADA
+│   ├── utils/           ✓ CREADA
+│   └── main.dart
+
+ 

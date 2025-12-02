@@ -37,4 +37,4 @@ maiz_detector_app/
 │   ├── utils/           ✓ CREADA
 │   └── main.dart
 
- 
+

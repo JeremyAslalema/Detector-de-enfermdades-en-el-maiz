@@ -10,13 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Para el modelo de IA
-  tflite_flutter: ^0.10.0
-  image: ^4.1.3
-  
-  # Para cámara y fotos
-  camera: ^0.10.5
+  # Para imágenes
   image_picker: ^1.0.4
+  
+  # Para cámara
+  camera: ^0.10.5
   
   # Para permisos
   permission_handler: ^11.0.1
@@ -24,12 +22,11 @@ dependencies:
   # Para estado
   provider: ^6.0.5
   
-  # UI adicional
+  # UI
   percent_indicator: ^4.2.3
   
   # Para guardar resultados
   shared_preferences: ^2.2.2
-  path_provider: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +39,3 @@ flutter:
   assets:
     - assets/model/
     - assets/images/
-  
-  # Configuración para TFLite en Android
-  # Esto se agregará automáticamente cuando instales tflite_flutter

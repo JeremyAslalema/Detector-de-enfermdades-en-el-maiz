@@ -1,0 +1,5 @@
+Frutos
+Hojas Enfermas
+Hojas Muertas
+Hojas Sanas
+Inflorescencia

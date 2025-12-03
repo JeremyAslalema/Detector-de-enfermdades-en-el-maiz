@@ -52,9 +52,7 @@ class HomePage extends StatelessWidget {
                 height: 60,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Cámara - Próximamente')),
-                    );
+                    Navigator.pushNamed(context, '/camera');
                   },
                   icon: const Icon(Icons.camera_alt),
                   label: const Text(
@@ -71,14 +69,18 @@ class HomePage extends StatelessWidget {
                 height: 60,
                 child: OutlinedButton.icon(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Galería - Próximamente')),
-                    );
+                    Navigator.pushNamed(context, '/camera');
                   },
                   icon: const Icon(Icons.photo_library),
                   label: const Text(
                     'ELEGIR DE GALERÍA',
                     style: TextStyle(fontSize: 18),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(
+                      color: Color(0xFF2E7D32),
+                      width: 2,
+                    ),
                   ),
                 ),
               ),

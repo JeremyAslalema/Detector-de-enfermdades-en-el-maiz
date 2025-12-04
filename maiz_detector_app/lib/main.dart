@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/themes.dart';
-import 'presentation/home/home_page.dart';
-import 'presentation/camera/camera_page.dart';
-import 'presentation/results/results_page.dart';
 import 'domain/classifiers/tflite_classifier.dart';
+import 'utils/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,11 +22,7 @@ class MyApp extends StatelessWidget {
         theme: AppThemes.lightTheme,
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
-        routes: {
-          '/': (context) => const HomePage(),
-          '/camera': (context) => const CameraPage(),
-          '/results': (context) => const ResultsPage(),
-        },
+        onGenerateRoute: AppRouter.generateRoute,
       ),
     );
   }

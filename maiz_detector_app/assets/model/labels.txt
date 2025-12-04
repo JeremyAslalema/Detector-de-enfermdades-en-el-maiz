@@ -1,5 +1,5 @@
-Frutos
-Hojas Enfermas
-Hojas Muertas
-Hojas Sanas
-Inflorescencia
+0 FRUTOS
+1 HOJAS ENFERMAS
+2 HOJAS MUERTAS
+3 HOJAS SANAS
+4 INFLORA

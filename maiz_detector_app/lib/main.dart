@@ -1,8 +1,9 @@
+// lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'core/themes.dart';
-import 'domain/classifiers/tflite_classifier.dart';
-import 'utils/app_router.dart';
+import 'package:maiz_detector_app/core/themes.dart';
+import 'package:maiz_detector_app/domain/classifiers/tflite_classifier.dart';
+import 'package:maiz_detector_app/utils/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

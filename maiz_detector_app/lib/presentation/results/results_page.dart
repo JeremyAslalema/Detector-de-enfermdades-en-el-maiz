@@ -2,13 +2,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-import '../../../domain/classifiers/tflite_classifier.dart';
+import 'package:maiz_detector_app/domain/classifiers/tflite_classifier.dart';
 import 'widgets/disease_info_card.dart';
 import 'widgets/recommendation_card.dart';
 
 class ResultsPage extends StatefulWidget {
-  const ResultsPage({super.key});
-
+  final String imagePath;
+  
+  const ResultsPage({super.key, required this.imagePath});
+  
   @override
   State<ResultsPage> createState() => _ResultsPageState();
 }
@@ -27,6 +29,7 @@ class _ResultsPageState extends State<ResultsPage> with TickerProviderStateMixin
   @override
   void initState() {
     super.initState();
+    _imagePath = widget.imagePath; // Usa el parámetro del constructor
     _fadeController = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: this,
@@ -42,8 +45,9 @@ class _ResultsPageState extends State<ResultsPage> with TickerProviderStateMixin
       CurvedAnimation(parent: _scaleController, curve: Curves.elasticOut),
     );
     
+    // Inicia el análisis automáticamente
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _loadArguments();
+      _analyzeImage();
     });
   }
 
@@ -54,18 +58,15 @@ class _ResultsPageState extends State<ResultsPage> with TickerProviderStateMixin
     super.dispose();
   }
 
-  void _loadArguments() {
-    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
-    
-    if (args != null && args['imagePath'] != null) {
-      _imagePath = args['imagePath'];
-      _analyzeImage();
-    } else {
-      Navigator.pop(context);
-    }
-  }
-
   Future<void> _analyzeImage() async {
+    // Si no hay imagen, regresa a la pantalla anterior
+    if (_imagePath.isEmpty || !File(_imagePath).existsSync()) {
+      if (mounted) {
+        Navigator.pop(context);
+      }
+      return;
+    }
+
     try {
       final classifier = Provider.of<TFLiteClassifier>(context, listen: false);
       
@@ -504,7 +505,7 @@ class _ResultsPageState extends State<ResultsPage> with TickerProviderStateMixin
     if (className.contains('Sanas')) return '🍃';
     if (className.contains('Enfermas')) return '🦠';
     if (className.contains('Muertas')) return '🍂';
-    if (className.contains('Inflorescencia')) return '🌸';
+    if (className.contains('Inflorescencia') || className.contains('INFLORA')) return '🌸';
     return '🌱';
   }
 

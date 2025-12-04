@@ -80,7 +80,7 @@ class _CameraPageState extends State<CameraPage> with SingleTickerProviderStateM
             Expanded(child: Text(message)),
           ],
         ),
-        backgroundColor: Colors.red[700],
+        backgroundColor: Colors.red.shade700,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
